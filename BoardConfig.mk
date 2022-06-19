@@ -161,3 +161,7 @@ SHRP_STATUSBAR_LEFT_PADDING := 40
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# include python, for ABX conversion
+TW_INCLUDE_PYTHON := true
+#
