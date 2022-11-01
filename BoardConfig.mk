@@ -143,6 +143,7 @@ TW_INCLUDE_NTFS_3G := true
 TW_USE_TOOLBOX := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP := true
+TW_DEFAULT_BRIGHTNESS := 800
 
 # SHRP Configuration
 SHRP_PATH := device/xiaomi/laurel_sprout
