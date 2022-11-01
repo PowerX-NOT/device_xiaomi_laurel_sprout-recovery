@@ -144,6 +144,17 @@ TW_USE_TOOLBOX := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP := true
 
+# SHRP Configuration
+SHRP_PATH := device/xiaomi/laurel_sprout
+SHRP_MAINTAINER := Rahul
+SHRP_DEVICE_CODE := laurel_sprout
+SHRP_EDL_MODE := 1
+SHRP_EXTERNAL := /sdcard1
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usbotg
+SHRP_FLASH := 1
+SHRP_AB := true
+
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
