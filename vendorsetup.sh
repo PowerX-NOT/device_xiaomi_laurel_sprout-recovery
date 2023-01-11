@@ -81,7 +81,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	# R11.1 Settings
 	export FOX_VERSION="R12.1"
-	export OF_MAINTAINER="RealAkira"
+	export OF_MAINTAINER="PowerX-NOT"
 
        # necessary to decrypt most violet ROMs
        export OF_FIX_DECRYPTION_ON_DATA_MEDIA=1
