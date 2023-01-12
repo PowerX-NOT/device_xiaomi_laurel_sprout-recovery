@@ -22,9 +22,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := laurel_sprout
-
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
@@ -41,25 +38,19 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := \
-     androidboot.console=ttyMSM0 \
-     androidboot.hardware=qcom \
-     androidboot.memcg=1 \
-     cgroup.memory=nokmem,nosocket \
-     console=ttyMSM0,115200n8 \
-     earlycon=msm_geni_serial,0x4a90000 \
-     loop.max_part=7 \
-     lpm_levels.sleep_disabled=1 \
-     msm_rtb.filter=0x237 \
-     service_locator.enable=1 swiotlb=1
-BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image earlycon=msm_geni_serial,0x4a90000 loop.max_part=7 cgroup.memory=nokmem,nosocket
+BOARD_KERNEL_CMDLINE += skip_override androidboot.fastboot=1
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/laurel_sprout
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CONFIG := vendor/laurel_sprout-perf_defconfig
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET := 0x01000000
+TARGET_PREBUILT_KERNEL := device/xiaomi/laurel_sprout/prebuilt/zImage
+BOARD_PREBUILT_DTBOIMAGE := device/xiaomi/laurel_sprout/prebuilt/dtbo.img
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_INCLUDE_RECOVERY_DTBO := true
+BOARD_BOOTIMG_HEADER_VERSION := 1
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
